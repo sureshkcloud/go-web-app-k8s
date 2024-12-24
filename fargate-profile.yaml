@@ -1,0 +1,16 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: demo-cluster1
+  region: us-east-1  # Change this to your region
+
+fargateProfiles:
+  - name: ingress-nginx-profile
+    selectors:
+      - namespace: ingress-nginx
+        labels:
+          app.kubernetes.io/name: ingress-nginx
+    podExecutionRoleARN: arn:aws:iam::294176318510:role/eksctl-demo-cluster1-cluste-FargatePodExecutionRole-2Un2hpwS6na8
+
+
